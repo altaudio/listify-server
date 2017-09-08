@@ -1,5 +1,5 @@
 {
-  "name": "node-seed",
+  "name": "listify-server",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -18,6 +18,10 @@
     "lint:watch": "nodemon --watch src --exec \"npm run lint:without:prettier\"",
     "lint:without:prettier": "npm run lint:js:without:prettier",
     "start": "neutrino start --use neutrino-preset-node",
+    "deploy:dev": "now --public -e NODE_ENV=development",
+    "deploy:prod": "now --public -e NODE_ENV=production",
+    "now-build": "npm install && npm run build",
+    "now-start": "npm run start:built",
     "start:built": "forever build/index.js",
     "start:debug": "npm run start -- --debug",
     "start:docker": "docker build -t lead-finder-server . && docker run --rm -it lead-finder-server",
@@ -72,3 +76,5 @@
     }
   }
 }
+
+
