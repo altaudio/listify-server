@@ -27,7 +27,9 @@
     "start:docker": "docker build -t lead-finder-server . && docker run --rm -it lead-finder-server",
     "test": "neutrino test --use neutrino-preset-node neutrino-preset-mocha",
     "test:watch": "nodemon -w src -w test --exec 'npm run test'",
-    "test:scrape": "babel-node src/testScrape.js"
+    "test:scrape": "babel-node src/testScrape.js",
+    "scrape:all": "babel-node src/scrapeAll.js",
+    "update:sources": "babel-node src/updateSources.js"
   },
   "dependencies": {
     "babel-plugin-root-import": "^5.1.0",
