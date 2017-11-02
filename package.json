@@ -33,7 +33,10 @@
   },
   "dependencies": {
     "babel-plugin-root-import": "^5.1.0",
+    "firebase-admin": "^5.2.1",
+    "later": "^1.2.0",
     "lodash": "^4.2.1",
+    "now": "^8.3.6",
     "scraperjs": "^1.2.0"
   },
   "devDependencies": {

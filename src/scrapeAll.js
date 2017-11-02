@@ -15,6 +15,8 @@ const scrapeSource = source => {
     .then((track) => {
       const splitTrack = splitScrapeResult(source, track)
 
+      console.log(splitTrack)
+
       if(splitTrack.title && splitTrack.artist) {
         firebase.database().ref(`sources/${source.name}/tracks/${splitTrack.title}`).update({
           title: splitTrack.title,
