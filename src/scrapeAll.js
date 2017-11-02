@@ -1,39 +1,63 @@
-import _ from 'lodash'
 import scraperjs from 'scraperjs'
 import moment from 'moment'
 import firebase from './initialiseFirebase.js'
 import splitScrapeResult from './splitScrapeAllResults'
 
-const scrapeSource = source => {
+const writeTrackToFirebase = (source, track, trackData) => {
+  firebase
+    .database()
+    .ref(`sources/${source.name}/tracks/${track.title}`)
+    .update({
+      title: track.title,
+      artist: track.artist,
+      timeStamp: moment().format('MMDDHHmm'),
+      spotifyId: trackData.body.tracks.items[0].id,
+    })
+}
+
+const getSpotifyIdAndWriteTrackToFirebase = (track, source, spotify) => {
+  spotify
+    .searchTracks(`track:${track.title} artist:${track.artist}`, { limit: 1 })
+    .then(trackData => {
+      if (trackData.body.tracks.items[0]) {
+        writeTrackToFirebase(source, track, trackData)
+        console.log(`${track.title} by ${track.artist} written to firebase from ${source.name}`)
+      } else {
+        console.log(`Spotify could not find ${track.title} by ${track.artist}`)
+      }
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
+const scrapeSource = (source, spotify) => {
   scraperjs.StaticScraper
     .create(source.url)
     .scrape($ => {
       return {
-        title: $(source.trackSelector).first().text(),
-        artist: $(source.artistSelector).first().text(),
+        title: $(source.trackSelector)
+          .first()
+          .text(),
+        artist: $(source.artistSelector)
+          .first()
+          .text(),
       }
     })
     .then(track => {
       const splitTrack = splitScrapeResult(source, track)
-
-      console.log(source.name)
-      console.log(splitTrack)
-
-      if (splitTrack.title || splitTrack.artist) {
-        firebase.database().ref(`sources/${source.name}/tracks/${splitTrack.title}`).update({
-          title: splitTrack.title,
-          artist: splitTrack.artist,
-          timeStamp: moment().format('MMDDHHmm'),
-        })
-      }
+      getSpotifyIdAndWriteTrackToFirebase(splitTrack, source, spotify)
     })
 }
 
-export default () => {
-  firebase.database().ref('/sources').once('value').then(sources => {
-    sources.forEach(source => {
-      const sourceScrapeOptions = source.val()
-      scrapeSource(sourceScrapeOptions)
+export default spotify => {
+  firebase
+    .database()
+    .ref('/sources')
+    .once('value')
+    .then(sources => {
+      sources.forEach(source => {
+        scrapeSource(source.val(), spotify)
+      })
     })
-  })
 }

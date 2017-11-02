@@ -1,4 +1,5 @@
 import Spotify from 'spotify-web-api-node'
+import request from 'superagent'
 import config from './config'
 
 const spotifyConfig = config.spotify
