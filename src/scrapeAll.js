@@ -5,19 +5,21 @@ import firebase from './initialiseFirebase.js'
 import splitScrapeResult from './splitScrapeAllResults'
 
 const scrapeSource = source => {
-  scraperjs.StaticScraper.create(source.url)
-    .scrape(($) => {
+  scraperjs.StaticScraper
+    .create(source.url)
+    .scrape($ => {
       return {
         title: $(source.trackSelector).first().text(),
         artist: $(source.artistSelector).first().text(),
       }
     })
-    .then((track) => {
+    .then(track => {
       const splitTrack = splitScrapeResult(source, track)
 
+      console.log(source.name)
       console.log(splitTrack)
 
-      if(splitTrack.title && splitTrack.artist) {
+      if (splitTrack.title || splitTrack.artist) {
         firebase.database().ref(`sources/${source.name}/tracks/${splitTrack.title}`).update({
           title: splitTrack.title,
           artist: splitTrack.artist,
