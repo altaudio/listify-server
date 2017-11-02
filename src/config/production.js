@@ -5,5 +5,5 @@ export default {
     databaseURL: 'https://listify-f290e.firebaseio.com',
     projectId: 'listify-f290e',
     messagingSenderId: '66117534553',
-  }
+  },
 }
