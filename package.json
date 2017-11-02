@@ -5,7 +5,7 @@
   "license": "ISC",
   "scripts": {
     "build": "neutrino build --use neutrino-preset-node",
-    "check:node": "check-node-version --node \">=8.1.2 <9\"",
+    "check:node": "check-node-version --node \">=8.1.2 <=9\"",
     "ci": "npm run lint:js && npm run test",
     "clean": "rm -rf dist",
     "precommit": "lint-staged && npm run lint",
@@ -27,11 +27,16 @@
     "start:docker": "docker build -t lead-finder-server . && docker run --rm -it lead-finder-server",
     "test": "neutrino test --use neutrino-preset-node neutrino-preset-mocha",
     "test:watch": "nodemon -w src -w test --exec 'npm run test'",
-    "test:scrape": "babel-node src/testScrape.js"
+    "test:scrape": "babel-node src/testScrape.js",
+    "scrape:all": "babel-node src/scrapeAll.js",
+    "update:sources": "babel-node src/updateSources.js"
   },
   "dependencies": {
     "babel-plugin-root-import": "^5.1.0",
+    "firebase-admin": "^5.2.1",
+    "later": "^1.2.0",
     "lodash": "^4.2.1",
+    "now": "^8.3.6",
     "scraperjs": "^1.2.0"
   },
   "devDependencies": {
