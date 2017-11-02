@@ -5,7 +5,7 @@
   "license": "ISC",
   "scripts": {
     "build": "neutrino build --use neutrino-preset-node",
-    "check:node": "check-node-version --node \">=8.1.2 <9\"",
+    "check:node": "check-node-version --node \">=8.1.2 <=9\"",
     "ci": "npm run lint:js && npm run test",
     "clean": "rm -rf dist",
     "precommit": "lint-staged && npm run lint",
