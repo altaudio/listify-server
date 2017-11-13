@@ -13,4 +13,4 @@ app.get('/', (request, response) => {
 
 watchAll()
 
-server.listen(port, () =>  console.log(`Server listening at port ${port}`))
+server.listen(port, () => console.log(`Server listening at port ${port}`))
