@@ -2,13 +2,13 @@ import later from 'later'
 import scrapeAll from './scrapeAll'
 import spotify from './intialiseSpotify'
 
-const scrapeAllInterval = 10
+const scrapeAllInterval = 3
 
 export default () => {
   const schedule = later.parse
     .recur()
     .every(scrapeAllInterval)
-    .second()
+    .minute()
   later.setInterval(() => {
     scrapeAll(spotify)
   }, schedule)

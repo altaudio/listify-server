@@ -2467,10 +2467,6 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-faye-websocket@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.4.0.tgz#e9a8fc6b3e5a610f3308e8b9782876a01a745799"
-
 faye-websocket@0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.4.4.tgz#c14c5b3bf14d7417ffbfd990c0a7495cd9f337bc"
@@ -5046,10 +5042,6 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
-rbytes@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/rbytes/-/rbytes-0.0.2.tgz#f876a6321dd94a484c97c0f9ff2e1e7fe3cb8a14"
-
 rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.2.tgz#d8ce9cb57e8d64d9c7badd9876c7c34cbe3c7077"
@@ -5524,13 +5516,6 @@ shelljs@^0.7.5:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
-shoe@0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/shoe/-/shoe-0.0.11.tgz#f1c1552b1e1a469b805834e2062e78ca3c958364"
-  dependencies:
-    sockjs "git://github.com/substack/sockjs-node.git#npm"
-    sockjs-client "git://github.com/substack/sockjs-client.git#browserify-npm"
-
 shoe@~0.0.15:
   version "0.0.15"
   resolved "https://registry.yarnpkg.com/shoe/-/shoe-0.0.15.tgz#baed8f1a7f08f530b66f0914287fcaa65b12443a"
@@ -5589,10 +5574,6 @@ sockjs-client@1.1.4:
     json3 "^3.3.2"
     url-parse "^1.1.8"
 
-"sockjs-client@git://github.com/substack/sockjs-client.git#browserify-npm":
-  version "0.0.0-unreleasable"
-  resolved "git://github.com/substack/sockjs-client.git#40d48d06b4dba884416bf88a051f76ca3c8ffcae"
-
 sockjs@0.3.18:
   version "0.3.18"
   resolved "https://registry.yarnpkg.com/sockjs/-/sockjs-0.3.18.tgz#d9b289316ca7df77595ef299e075f0f937eb4207"
@@ -5606,15 +5587,6 @@ sockjs@0.3.7:
   dependencies:
     faye-websocket "0.4.4"
     node-uuid "1.3.3"
-
-"sockjs@git://github.com/substack/sockjs-node.git#npm":
-  version "0.3.1"
-  resolved "git://github.com/substack/sockjs-node.git#49090a1212ba2e7216c1cf36415de3c5c74e1901"
-  dependencies:
-    faye-websocket "0.4.0"
-    node-uuid "1.3.3"
-  optionalDependencies:
-    rbytes "0.0.2"
 
 sort-object-keys@^1.1.1:
   version "1.1.2"

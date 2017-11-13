@@ -38,7 +38,6 @@
     "lodash": "^4.2.1",
     "now": "^8.3.6",
     "scraperjs": "^1.2.0",
-    "shoe": "0.0.11",
     "spotify-web-api-node": "^2.5.0",
     "superagent": "^3.8.0"
   },
@@ -65,7 +64,6 @@
     "neutrino-preset-node": "^5.9.1",
     "nodemon": "^1.8.1",
     "prettier": "^1.2.2",
-    "shoe": "0.0.11",
     "sort-package-json": "^1.6.1"
   },
   "engines": {
