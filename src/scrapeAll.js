@@ -21,9 +21,9 @@ const getSpotifyIdAndWriteTrackToFirebase = (track, source, spotify) => {
     .then(trackData => {
       if (trackData.body.tracks.items[0]) {
         writeTrackToFirebase(source, track, trackData)
-        console.log(`${track.title} by ${track.artist} written to firebase from ${source.name}`)
+        console.log(`${track.title} / ${track.artist} : ${source.name} - SUCCESS`)
       } else {
-        console.log(`Spotify could not find ${track.title} by ${track.artist}`)
+        console.log(`${track.title} / ${track.artist} : ${source.name} - SPOTIFY ERROR`)
       }
     })
     .catch(error => {
